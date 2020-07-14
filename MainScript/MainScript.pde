@@ -9,8 +9,6 @@ float minDiam;
 float maxDiam;
 float incrAngle;
 int nbrLayers;
-float freq;
-float amp;
 
 void setup(){
   size(600, 600);
@@ -20,16 +18,30 @@ void setup(){
   separationDiam = 300;
   minDiam = 0;
   maxDiam = 600;
-  incrAngle = PI/50;
+  incrAngle = PI/20;
   nbrLayers = 10;
   
-  freq = 10;
-  amp = 20;
+  float freq1;
+  float freq2;
+  float amp1;
+  float amp2;
+  float speed1;
+  float speed2;
+  int addLay1;
+  int addLay2;
+  freq1 = 10;
+  freq2 = 20;
+  amp1 = 40;
+  amp2 = 40;
+  speed1 = 0;
+  speed2 = PI/5;
+  addLay1 = 10;
+  addLay2 = 10;
   
-  innerWhite = new Circle(minDiam, separationDiam, 0, 0, freq, amp);
-  innerBlack = new Circle(minDiam, separationDiam, incrAngle, 0, freq, amp);
-  outerWhite = new Circle(separationDiam, maxDiam, 0, PI/10, freq, -amp);
-  outerBlack = new Circle(separationDiam, maxDiam, incrAngle, PI/10, freq, -amp);
+  innerWhite = new Circle(minDiam, separationDiam, 0, speed1, freq1, amp1, addLay1);
+  innerBlack = new Circle(minDiam, separationDiam, incrAngle, speed1, freq1, amp1, addLay1);
+  outerWhite = new Circle(separationDiam, maxDiam, 0, speed2, freq2, amp2, addLay2);
+  outerBlack = new Circle(separationDiam, maxDiam, incrAngle, speed2, freq2, amp2, addLay2);
 }
 
 void draw(){
